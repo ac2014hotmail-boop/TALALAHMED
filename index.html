@@ -1,578 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دورة إطلاق الإعلانات الممولة - طلال أحمد</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #0d1a26; /* Dark Blue from Logo */
-            --secondary-color: #f7a62e; /* Golden from Logo */
-            --accent-color: #5ab1db; /* Light Blue from Logo */
-            --light-color: #f4f4f4;
-            --text-color: #333;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Tajawal', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-color);
-            background-image: url('https://www.transparenttextures.com/patterns/clean-gray-paper.png');
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-        }
-
-        .navbar {
-            background-color: var(--primary-color);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar-brand img {
-            height: 40px;
-        }
-
-        .navbar-links {
-            list-style: none;
-            display: flex;
-        }
-
-        .navbar-links li {
-            margin-right: 25px;
-        }
-
-        .navbar-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .header {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .logo {
-            max-width: 150px;
-            margin-bottom: 10px;
-        }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            margin-top: 20px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            border: 2px solid var(--secondary-color);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            background-color: #d18a1a;
-        }
-
-        /* New Price Box in Header */
-        .price-box {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 15px 30px;
-            border-radius: 10px;
-            display: inline-block;
-            margin-top: 25px;
-            font-size: 2rem;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .price-box span {
-            font-size: 1.5rem;
-        }
-        
-        .main-section {
-            padding: 60px 0;
-            text-align: center;
-        }
-        
-        .main-section h2, .section h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            position: relative;
-        }
-
-        .main-section h2::after, .section h2::after {
-            content: '';
-            width: 100px;
-            height: 5px;
-            background: var(--secondary-color);
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .main-section p {
-            font-size: 1.1rem;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .section {
-            background-color: #fff;
-            padding: 50px 0;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .section:nth-of-type(odd) {
-            background-color: var(--light-color);
-        }
-        
-        .highlight-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            list-style: none;
-            padding: 0;
-            text-align: right;
-            justify-content: center;
-            margin: auto;
-            max-width: 1000px;
-        }
-
-        .highlight-list li {
-            background-color: #fff;
-            padding: 30px;
-            border-right: 5px solid var(--accent-color);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-weight: 700;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .highlight-list li:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-        }
-        
-        .highlight-list li span.emoji {
-            font-size: 1.5rem;
-            margin-left: 15px;
-            line-height: 1;
-        }
-
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-
-        .details-item {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
-        .details-item span {
-            display: block;
-            font-size: 2rem;
-            margin-bottom: 5px;
-        }
-        
-        .social-links a {
-            color: var(--secondary-color);
-            margin: 0 10px;
-            font-size: 2rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .footer {
-            background-color: var(--primary-color);
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            font-size: 0.9rem;
-        }
-
-        .cta-box {
-            background-color: var(--accent-color);
-            color: #fff;
-            padding: 40px;
-            text-align: center;
-            border-radius: 8px;
-            margin: 40px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .cta-box h2 {
-            color: #fff;
-            margin-bottom: 15px;
-        }
-        .cta-box .btn-primary {
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-        }
-
-        /* Floating WhatsApp Button (removed price button as it's now in the header) */
-        .floating-btn {
-            position: fixed;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .floating-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .floating-whatsapp {
-            bottom: 20px;
-            left: 20px;
-            background-color: #25D366;
-            color: #fff;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            font-size: 2.5rem;
-        }
-        
-        .faq-item {
-            text-align: right;
-        }
-
-        .faq-item h3 {
-            margin-top: 0;
-            color: var(--primary-color);
-        }
-
-        /* Instructor section with image */
-        .instructor-content {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .instructor-content img {
-            max-width: 120px;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
-        }
-
-        .instructor-content img:hover {
-            transform: translateY(-5px);
-        }
-
-        .instructor-content p {
-            flex: 1;
-            text-align: justify;
-            direction: rtl;
-            font-size: 1.1rem;
-            max-width: 700px;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .navbar-links {
-                display: none;
-            }
-            .header h1 {
-                font-size: 2rem;
-            }
-            .instructor-content {
-                flex-direction: column;
-            }
-            .instructor-content p {
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<nav class="navbar">
-    <div class="container">
-        <div class="navbar-brand">
-            <a href="#hero"><img src="https://i.ibb.co/Xfb96XGz/image-png.png" alt="شعار الدورة"></a>
-        </div>
-        <ul class="navbar-links">
-            <li><a href="#about">من نحن</a></li>
-            <li><a href="#objectives">أهداف الدورة</a></li>
-            <li><a href="#topics">محاور الدورة</a></li>
-            <li><a href="#details">تفاصيل الدورة</a></li>
-            <li><a href="#faq">الأسئلة الشائعة</a></li>
-        </ul>
-    </div>
-</nav>
-
-<div class="header" id="hero">
-    <div class="container">
-        <h1>دورة إطلاق الإعلانات الممولة في منصة ميتا للمبتدئين بالذكاء الاصطناعي</h1>
-        <p>تعلم خطوات بناء الحملات، اختيار الجمهور، كتابة نصوص وإعلانات جذابة، واستغلال أدوات الذكاء الاصطناعي لتحسين النتائج وتقليل التكلفة.</p>
-        <div class="price-box">
-            50 <span>$</span>
-        </div>
-        <a href="https://wa.me/967734906067" class="btn btn-primary" target="_blank">
-            اشترك الآن عبر الواتس اب
-        </a>
-    </div>
-</div>
-
-<div class="main-section" id="objectives">
-    <div class="container">
-        <h2>أهداف الدورة</h2>
-        <ul class="highlight-list">
-            <li><span class="emoji">🚀</span>إطلاق حملات إعلانية احترافية في منصة ( فيس بوك وانستجرام )</li>
-            <li><span class="emoji">📄</span>انشاء صفحة تجارية وربطها بمحركات البحث .</li>
-            <li><span class="emoji">🤖</span>استخدام الذكاء الصناعي في الإعلانات .</li>
-            <li><span class="emoji">✍️</span>بناء العلامة التجارية الشخصية .</li>
-            <li><span class="emoji">🎨</span>كتابة المحتوى الإعلاني والتصميم بالذكاء الصناعي .</li>
-            <li><span class="emoji">📊</span>تحليل المنافسين وفهم الجمهور .</li>
-        </ul>
-    </div>
-</div>
-
-<div class="section" id="about">
-    <div class="container">
-        <h2>من هو المدرب؟</h2>
-        <div class="instructor-content">
-            <img src="https://i.ibb.co/N6z40w5g/image.png" alt="صورة طلال أحمد">
-            <p>
-                أنا طلال أحمد، ممارس في مجال التسويق الإلكتروني والإعلانات الممولة لمنصة ميتا وجوجل ادز . مرشد محلي مستوى 10 في خرائط جوجل، خبرة في إدارة الملف التجاري للانشطة التجارية في جوجل وصانع محتوى في التسويق الالكتروني على وسائل التواصل الاجتماعي. شغفي يكمن في مساعدة الأفراد والأعمال على تحقيق أهدافهم التجارية من خلال استراتيجيات تسويق رقمي مبتكرة وفعّالة.
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="section" id="topics">
-    <div class="container">
-        <h2>محاور الدورة</h2>
-        <ul class="highlight-list">
-            <li><span class="emoji">🌐</span>إنشاء صفحة تجارية احترافية وربطها بواتساب وإنستجرام ومُحسّنة لمحركات البحث.</li>
-            <li><span class="emoji">📝</span>استراتيجة النشر الصحيحة للمنشورات والفيديوهات الصديقة لمحركات البحث</li>
-            <li><span class="emoji">📅</span>جدولة المنشورات والأدوات العملية .</li>
-            <li><span class="emoji">🔍</span>فهم خوارزميات الهاشتاق</li>
-            <li><span class="emoji">📈</span>تحليل المنافسين وإعلاناتهم .</li>
-            <li><span class="emoji">🤖</span>الإعلانات الممولة بالذكاء الاصطناعي من الحساب الاعلاني .</li>
-            <li><span class="emoji">🎯</span>فهم الجمهور واستهدافه .</li>
-            <li><span class="emoji">👤</span>أدواتك للنجاح في بناء علامتك التجارية الشخصية.</li>
-        </ul>
-    </div>
-</div>
-
-<div class="section" id="outcomes">
-    <div class="container">
-        <h2>مخرجات الدورة</h2>
-        <ul class="highlight-list">
-            <li><span class="emoji">👨‍🎓</span>اتقان إطلاق وإدارة الإعلانات الممولة على منصة ميتا.</li>
-            <li><span class="emoji">🔗</span>المعرفة الواسعة في انشاء الصفحات التجارية وربطها بمحركات البحث .</li>
-            <li><span class="emoji">🤖</span>الاستفادة من الذكاء الاصطناعي لتحسين نتائج إعلاناتك.</li>
-            <li><span class="emoji">🏆</span>تحقيق نتائج أفضل: ستتمكن من تحليل إعلاناتك واستخراج أفضل النتائج منها.</li>
-            <li><span class="emoji">💪</span>ستتعلم كيفية بناء براند شخصي أو تجاري قوي.</li>
-            <li><span class="emoji">🖋️</span>الالمام بكتابة المحتوى الإعلاني والتصميم بالذكاء الصناعي .</li>
-            <li><span class="emoji">🔎</span>المقدرة على تحليل المنافسين واعلاناتهم .</li>
-        </ul>
-    </div>
-</div>
-
-<div class="section" id="details">
-    <div class="container">
-        <h2>تفاصيل الدورة</h2>
-        <div class="details-grid">
-            <div class="details-item">
-                <span><i class="fas fa-clock"></i></span>
-                <p><strong>المدة:</strong> 8 أيام × 2 ساعة</p>
-            </div>
-            <div class="details-item">
-                <span><i class="fas fa-globe"></i></span>
-                <p><strong>المكان:</strong> أونلاين عبر Zoom</p>
-            </div>
-            <div class="details-item">
-                <span><i class="fas fa-dollar-sign"></i></span>
-                <p><strong>السعر:</strong> 50 $</p>
-            </div>
-            <div class="details-item">
-                <span><i class="fas fa-video"></i></span>
-                <p><strong>المحاضرات:</strong> مسجلة للرجوع إليها لاحقاً</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="section" id="target">
-    <div class="container">
-        <h2>الفئة المستهدفة</h2>
-        <ul class="highlight-list">
-            <li><span class="emoji">🛠️</span>صاحب مهنة أو مقدم خدمات.</li>
-            <li><span class="emoji">🎓</span>خريج جامعي أو باحث عن تحسين دخلك .</li>
-            <li><span class="emoji">🏪</span>صاحب محل تجاري .</li>
-            <li><span class="emoji">🚀</span>رائد أعمال .</li>
-            <li><span class="emoji">✍️</span>صانع محتوى أو مقدم خدمات .</li>
-        </ul>
-    </div>
-</div>
-
-<div class="section" id="faq">
-    <div class="container">
-        <h2>الأسئلة الشائعة</h2>
-        <div class="faq-item">
-            <h3>هل الدورة تناسب المبتدئين تمامًا؟</h3>
-            <p>نعم، الدورة مصممة لتناسب الجميع، من المبتدئين إلى أصحاب الأعمال الذين يرغبون في تطوير مهاراتهم. سنبدأ من الصفر وننتقل خطوة بخطوة نحو المهارة .</p>
-        </div>
-        <div class="faq-item">
-            <h3>ما هي الأدوات التي سأحتاجها لحضور الدورة؟</h3>
-            <p>كل ما ستحتاجه هو جهاز كمبيوتر (لابتوب أو مكتبي)، اتصال جيد بالإنترنت، وحسابات على فيسبوك وانستجرام. لا توجد حاجة لأي أدوات مدفوعة أخرى.</p>
-        </div>
-        <div class="faq-item">
-            <h3>ما الفرق بين هذه الدورة والدورات الأخرى؟</h3>
-            <p>هذه الدورة تركز على التطبيق العملي بنسبة 100%، حيث ستقوم بتطبيق كل خطوة بنفسك. كما أننا نركز على التقنيات في مجال الذكاء الاصطناعي وكيفية استغلالها في الحملات الإعلانية لتحقيق أفضل نتيجة .</p>
-        </div>
-        <div class="faq-item">
-            <h3>هل الدورة عملية؟</h3>
-            <p>نعم، ستقوم بالتطبيق بنفسك خطوة بخطوة.</p>
-        </div>
-        <div class="faq-item">
-            <h3>هل سأتعلم عن الذكاء الاصطناعي؟</h3>
-            <p>بالتأكيد، جزء أساسي من الدورة يركز على كيفية استخدام الذكاء الاصطناعي في اطلاق الاعلانات.</p>
-        </div>
-        <div class="faq-item">
-            <h3>هل المحاضرات مسجلة؟</h3>
-            <p>نعم، ستصلك جميع التسجيلات.</p>
-        </div>
-        <div class="faq-item">
-            <h3>ما طريقة الدفع؟</h3>
-            <p>يمكنك الدفع عبر الحساب البنكي الموضح أو التنسيق عبر الواتساب.</p>
-        </div>
-        <div class="faq-item">
-            <h3>هل يمكن التواصل المباشر مع المدرب؟</h3>
-            <p>نعم، خلال الجلسات سيكون هناك وقت للإجابة على استفساراتك.</p>
-        </div>
-    </div>
-</div>
-
-<div class="cta-box">
-    <div class="container">
-        <h2>غير مسار عملك للأفضل!</h2>
-        <p>دورتنا التدريبية في الإعلانات الممولة هي الحل! سنعلّمك خطوة بخطوة كيف تستهدف جمهورك بدقة، وتصمم إعلانات جذابة.</p>
-        <a href="https://wa.me/967734906067" class="btn btn-primary" target="_blank">
-            احجز مقعدك الآن
-        </a>
-    </div>
-</div>
-
-<div class="footer">
-    <div class="container">
-        <p>&copy; 2024 طلال أحمد. جميع الحقوق محفوظة.</p>
-        <div class="social-links">
-            <a href="https://www.facebook.com/TalalAhmed000" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/TalalAhmed000" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@talalahmed0000" target="_blank"><i class="fab fa-tiktok"></i></a>
-        </div>
-        <p style="margin-top: 15px; color: var(--light-color);">للتواصل المباشر: 734906067</p>
-    </div>
-</div>
-
-<a href="https://wa.me/967734906067" class="floating-btn floating-whatsapp" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const navLinks = document.querySelectorAll('.navbar-links a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                window.scrollTo({
-                    top: targetSection.offsetTop - 70, 
-                    behavior: 'smooth'
-                });
-            });
-        });
-    });
-</script>
-
-</body>
-
-</html>
